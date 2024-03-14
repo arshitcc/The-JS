@@ -35,6 +35,6 @@ let gender;
 
 console.table([typeof "arshit", typeof age, typeof isLogged, typeof city, typeof gender ]);
 // IMP Interview Ques. POV
-
+// null is an object and undefined is undefined
 console.log(typeof null);
 console.log(typeof undefined);
