@@ -91,8 +91,56 @@ console.log("-----------------------------------------------------");
     1 => true, 0 => false
    "Benstokes" => true
    "" => false
+
+   -> 
+   Values like false, 0, null, undefined, NaN, and empty strings are considered falsy and convert to false. Everything else      converts to true.
 */
 
+// Conversions To Object : 
+
+console.log(Object(42)); // Number { 42 } (wraps primitive number in Number object)
+console.log(Object('hello')); // String { 'hello' } (wraps primitive string in String object)
+console.log(Object(true)); // Boolean { true } (wraps primitive boolean in Boolean object)
+console.log("-----------------------------------------------------");
+
+let x = Object(true);   // now it is an object not a boolean 
+console.log(x);
+console.log(typeof(x));
+x = "arshit";
+console.log("-----------------------------------------------------");
+
+console.log(typeof(x));
+let y = true;
+console.log(y);
+
+// Bool to String
+let mname = true;
+console.log(mname);
+console.log(typeof mname); //character
+let cname = String(mname)
+console.log(cname);
+console.log(typeof cname);
+console.log("-----------------------------------------------------");
+
+
+// Float to Integer : 
+
+let radius = 3.69;
+console.log(radius);
+console.log(typeof(radius));
+let radi = parseInt(radius);
+console.log(radi);
+console.log(typeof(radi));
+console.log("-----------------------------------------------------");
+
+
+let rads = "3.69";
+console.log(radius);
+console.log(typeof(radius));
+let rad = parseInt(radius);
+console.log(rad);
+console.log(typeof(rad));
+console.log("-----------------------------------------------------");
 /* 
 
 TYPE CONVERSIONS : 
