@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | 04</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white font-bold">
+
+    <ul class="languages">
+        <li class="langName">JavaScript</li>
+    </ul>
+</body>
+
+<script>
+
+    // 1. Adding 
+
+    function addLanguage( langName ){
+        const item = document.createElement('li');
+        // item.setAttribute('class', 'langName');
+        item.setAttribute('class', document.querySelector('.languages').firstElementChild.className);
+        item.innerText = langName;
+        const langParent = document.querySelector('.languages');
+        langParent.appendChild(item);
+    }
+
+    addLanguage('C++');
+    addLanguage('TypeScript');
+
+    /*
+        The problem is whenever is a new list item is added it is getting added after traversing all the starting li-items, and then the new item is added.
+
+        T.C increases for larger number of item.
+        
+        innerText is optimal for simple text Updates not for large number of updates so,
+
+        Always use for appendChild => This is for efficent DOM updates.
+
+    */
+
+    function addLangOptimized( langName ){
+        const item = document.createElement('li');
+        item.setAttribute('class','langName');
+        item.appendChild(document.createTextNode(langName));
+        document.querySelector('.languages').appendChild(item);
+    }
+
+    addLangOptimized('Java');
+    addLangOptimized('Ruby');
+
+    // 2. Editing
+
+    const language = document.querySelector('li:nth-child(2)');
+    // console.log(language);
+
+    // language.innerText = 'GoLang';
+
+    const newLi = document.createElement('li');
+    newLi.setAttribute('class','langName');
+    newLi.textContent = 'GoLang';
+    language.replaceWith(newLi);
+
+    // Editing :
+    const lang1 = document.querySelector('li:nth-child(1)');
+    const lang2 = document.querySelector('li:nth-child(3)');
+    lang1.outerHTML = '<li class="langName">TYPESCRIPT<li/>';
+
+    // 3. Removing : 
+
+    // const tempLang1 = document.querySelector('li:last-child');
+    // tempLang1.remove();
+
+    const tempLang = document.querySelector('.languages').lastElementChild;
+    console.log(tempLang);
+    tempLang.remove();
+
+
+</script>
+
+</html>

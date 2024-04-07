@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | 03</title>
+</head>
+<body class="bg-black text-white text-3xl font-bold">
+    
+</body>
+
+<script>
+
+    /* All the OutPuts can be seen on browser-console with real-time output. */
+
+    const divElement = document.createElement('div');
+    console.log(divElement); // This has successfully created a div Element
+
+    divElement.className = 'main';
+    divElement.id = Math.round(Math.random()*10 + 1); // [01,11]
+    divElement.style.backgroundColor = 'white';
+    divElement.style.color = 'green';
+    divElement.padding = '15px';
+    divElement.innerText = 'Hello DOCUMENT !! I am Devin new Here.';
+
+    /* 
+        This seperately setting things is a costly operation because this in one go firstly brings the reference and then overwrites the details setted .
+        Instead use : setAttribute
+        this takes the data and then go to the reference address and then overwrites the data.
+    */
+
+    divElement.setAttribute('title',  'generated div');
+    divElement.setAttribute('class', 'Hey');
+
+    const addText = document.createTextNode('What is my first Task ?');
+    divElement.appendChild(addText);
+
+
+    /* 
+        Whatever we created and operated was only into the memory. Now we will push this to document which is our main goal 
+        => take the data from the document
+        => Build something
+        => Present Something
+    */
+
+    document.body.appendChild(divElement);
+
+    /* 
+        Similarly you can wrap this all into a function which will create new element with argument passing , according to useCases   
+    */
+    
+</script>
+
+</html>

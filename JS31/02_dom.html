@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>DOM | 02</title>
+</head>
+
+<body class=" bg-black font-bold text-white">
+    <div class="week">
+        <!-- This is comment -->
+        <div class="day">Monday <span class="hidden">Hello</span> </div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>    
+</body>
+
+<script>
+
+    /* All the OutPuts can be seen on browser-console with real-time output. */
+
+    const week = document.querySelector('.week');
+    console.log(week); 
+    console.log(week.children); // week.children gives you the HTML collection
+
+    const weekArr = Array.from(week.children);
+    console.log(weekArr);
+
+    for (let i = 0; i < week.children.length; i++) {
+        // console.log(week.children[i].textContent);
+        // console.log(week.children[i].innerHTML);
+        // console.log(week.children[i].innerText);
+    }
+
+    week.children[1].style.color = 'orange';
+    // console.log(week.firstElementChild);
+    // console.log(week.lastElementChild);
+
+    const day1 = document.querySelector('.day');
+    console.log(day1);
+    console.log(day1.parentElement);
+    console.log(day1.nextElementSibling);
+
+    /*    
+
+    Q. Which is costlier Operation querySelector or getEement by Id, classes,etc ?
+
+    => querySelector is considered a costly operation compared to more specific DOM traversal methods like getElementById or getElementsByClassName because of how it works internally.
+
+    When you use querySelector, the browser has to parse the CSS selector you provide and then traverse the entire DOM tree to find the matching element(s). This involves more computational work compared to methods like getElementById, which directly accesses an element by its ID without needing to parse a selector or traverse the entire DOM tree.
+
+    Additionally, querySelector returns a NodeList (or a single element if you use querySelector instead of querySelectorAll), which is a live collection. This means that the collection is updated dynamically as the DOM changes.  
+
+    */
+
+    console.log("Nodes : ", week.childNodes);
+    /* There are 11 nodes showing how?,  the line breaks you give are counted as 'text'  */
+    /* The childNodes are used in React.js memory Allocation,*/
+    
+</script>
+
+</html>
