@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Guess Number</title>
+</head>
+<body>
+
+    <nav class="flex list-none gap-4 bg-zinc-100 justify-center p-4">
+        <a class="bg-neutral-300 border border-black rounded px-8 py-2" href="#">Home</a>
+        <a class="bg-zinc-100 border border-black rounded px-8 py-2" href="#">GitHub</a>
+    </nav>
+
+    <div class="bg-neutral-800 p-12">
+        <div class="container mx-auto text-white text-center space-y-4">
+            <p class="text-2xl text-center font-bold p-4"> Number Guessing Game </p>
+            <p>Try and guess a random number between 1 and 100. </p>
+            <p>You have 10 attempts to guess the right number. </p>
+            <form class="bg-zinc-700 rounded-xl p-4 flex flex-col justify-center items-center gap-8">
+                <div class="flex flex-col gap-12 ">
+                    <label class="text-5xl" for="guessField"> Guess a Number</label>
+                    <input class="guess p-4 text-center text-black font-bold" type="number" name="number" id="number">
+                    <div>
+                        <button class="submit bg-neutral-900 rounded-xl p-4" type="submit">Submit Guess</button>
+                        <button class="reset bg-neutral-800 rounded-xl p-4" type="reset">New Game</button>
+                    </div>
+                </div>
+            </form>
+            <p class="message"></p>
+            <p>Previous Guess : <span class="prevGuesses bg-neutral-300 text-black "></span></p>
+            <p>Guess Remaining : <span class="guessRemaining"></span></p>
+        </div>
+    </div>
+    
+</body>
+
+<script src="./GN2.js">
+
+</script>
+</html>
