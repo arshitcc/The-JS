@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Color Changer</title>
+</head>
+<body>
+
+    <nav class="flex list-none gap-4 bg-zinc-100 justify-center p-4">
+        <a class="bg-neutral-300 border border-black rounded px-8 py-2" href="#">Home</a>
+        <a class="bg-zinc-100 border border-black rounded px-8 py-2" href="#">GitHub</a>
+    </nav>
+
+    <main class="bg-neutral-800 font-bold">
+       <div class="container mx-auto p-8 flex flex-col gap-8">
+            <h1 class="text-5xl text-white text-center "> Color Scheme Switcher </h1>
+            <div class="flex gap-12 justify-center ">
+                <span class="button bg-red-500 h-24 w-24 rounded-xl" id="red"></span>
+                <span class="button bg-blue-500 h-24 w-24 rounded-xl" id="blue"></span>
+                <span class="button bg-green-500 h-24 w-24 rounded-xl" id="green"></span>
+                <span class="button bg-yellow-500 h-24 w-24 rounded-xl" id="yellow"></span>
+            </div>
+       </div>
+    </main>
+</body>
+<script src="./ColorChanger.js"></script>
+
+</html>
