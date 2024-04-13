@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Events Basics</title>
+</head>
+<body class="bg-gray-800 text-white font-bold">
+
+    <h2 class="p-12"> Amazing Images </h2>
+    <div class="p-12">
+        <ul id="images" class="flex gap-12">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // Javascript is Sequential Language.
+
+    // 1. Event Listing of click, in the attribute of tag write onclick(alert('YOYYO'));
+    // 2. In the script, write document.querySelector('element').onclick = function() {};
+    // 3. The Ultimate power comes with EventListners which gives more functionality / Event tracking more than a 'click'
+   
+    // console.log(event) => It gives a Pointer Event with various Objects 
+    /*
+        Some Important Event Objects  :
+        -> type, timestamp, defaultPrevented
+        -> target, toElement, srcElement, currentTarget,
+        -> clientX, clientY, screenX, screenY
+        -> altkey, ctrlkey, shiftkey, keyCode
+    */
+
+    // => Now here comes the problem of Event Propagation
+
+    /* 
+    Let's say we are focusing on 2 events 
+
+        1. If there is click on Unordered_List
+        2. If there is click on image with id = 'owl'
+
+        => What do you think which event is executed first?
+    */
+
+    // document.getElementById('images').addEventListener('click' , (event) => {
+
+    //     // console.log(event);
+    //     console.log(`Clicked on UL`);
+    // }, false );
+
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     // console.log(event);
+    //     console.log(`Clicked on OWL`);
+    //     event.stopPropagation(); // this will not allow to bubble the event to Top.
+    // }, false );
+
+    /* 
+        After Clicked in OWL it goes to Clicked on UL due to Event Bubbling / Event Propagation => 
+        "The Event is like a bubble when created it goes up" 
+    */
+
+    /* If used true and clicked on OWL then => Clicked on UL and then Clicked on OWL */
+
+    document.getElementById('google').addEventListener('click', function (event){
+        console.log(`Clicked on Google`);
+        event.preventDefault();
+        // If clicked this will not take you to any further site
+        event.stopPropagation();
+        // this will stop Event Bubbling if it has that case.
+    },false);
+
+    /* Task : Clicking on any Event should remove the image. */
+
+    document.getElementById('images').addEventListener('click', function (event) {
+        console.log(event.target);  // this gives event occured from which target, this will give img-tag
+        // event.target.remove();   // NOOOOOOOOOOOOOO
+        // But aim is to remove the li-item, otherwise only image will be deleted but li-item will be still there
+
+
+        // console.log(event.target.parentNode);
+        // event.target.parentNode.remove();  // YESSSSSSSSSSSSSSSS
+
+        // If directly li's bullet is clicked then the whole ul will be deleted. So to avoid that add a check-mark if the event click if from img-tag then only delete it
+
+        console.log(event.target.tagName);
+
+        if(event.target.tagName === 'IMG'){   
+            event.target.parentNode.remove();
+        }
+
+        // Another confusing operation to remove
+        // event.target.parentNode.removeChild(event.target);
+    } , false);
+
+</script>
+</html>

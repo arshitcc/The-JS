@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>03 : Events-Exercise </title>
+</head>
+<body class="bg-gray-800 text-white font-bold">
+
+    <div class="container mx-auto space-y-12 p-12">
+        <h1 class="text-3xl"> Indian Institute of Information Technology Agartala, Tripura</h1>
+        <div class="space-x-12">
+            <button class="p-8 hover:bg-red-300 text-black bg-white rounded-xl" id="start">Start</button>
+            <button class="p-8 hover:bg-red-300 text-black bg-white rounded-xl" id="stop"> Stop </button>
+        </div>
+        <div class="space-y-8" id="details" >
+
+        </div>
+    </div>
+</body>
+
+<script>
+    // Task 1 : When Click on Start then Start Printing "Hello in Loop"
+
+    let stopPrinting;
+
+    document.querySelector('#start').addEventListener('click', (event) => {
+
+        event.preventDefault();
+        stopPrinting = setInterval(function(){
+            const item = document.createElement('p');
+            item.innerHTML = 'Arshit Chaurasia <span class = "text-2xl">22UICS111<span/> ';
+            item.className = 'bg-gray-600 p-4 rounded'
+            const details = document.querySelector('#details');
+            details.appendChild(item);
+        },2000);
+
+    })
+
+    document.querySelector('#stop').addEventListener('click',(event) => {
+        event.preventDefault();
+        clearInterval(stopPrinting);
+    })
+
+</script>
+
+</html>

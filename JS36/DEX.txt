@@ -1,0 +1,16 @@
+Q. There are total 3 parameters in addEventListner()
+
+=> 1. Event, 2. Function, 3. boolean_value(true/false)
+    By default if you don't write 3rd parameter it is considered as false.
+
+    There are some tasks which when given will not work untill you use that 3rd parameter.
+
+    -> Event Propagation has 2 contexts
+    -> Event Bubbling (false) and Event Capturing (true).
+    -> Mostly used to stop Event Propagation
+
+    ->
+
+    -> Event Bubbling (Bottom To Top )
+    -> Event Capturing (Top to Bottom)
+

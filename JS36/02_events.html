@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>02 : Events </title>
+</head>
+<body class="bg-gray-800 text-white font-bold">
+
+    <div class="container mx-auto space-y-12 p-12">
+        <h1 class="text-3xl"> Indian Institute of Information Technology Agartala, Tripura</h1>
+        <button class="p-8 text-black bg-white rounded-xl" id="stop"> Stop </button>
+    </div>
+
+</body>
+
+<script>
+    // The Functions setTimeout and setInterval and more are not the part of coreJS instead they are offered from browser or say window-object
+
+    // setTimeout( handler, number ) ;
+    // handler in nothing but a call_Back Function 
+    // number is time in milliseconds
+    
+    setTimeout(() => {
+        console.log('Arshit Chaurasia');
+    }, 3000);
+
+    // The setTimeout() works in such a way that after 3000ms the function inside will be executed 1 time
+
+    // setInterval(() => {
+    //     console.log('22UICS111');
+    // }, 2000);
+
+    // the setInterval() works in such a way that in every interval of 2000ms, function inside will be executed continuosly.
+    
+    const shortName = function () {
+        document.querySelector('h1').innerHTML = `IIIT Agartala, Tripura`;
+        console.log('Changed -> ShortName');
+    }
+    const shortNameTO = setTimeout(shortName, 10000);
+
+    // The setTimeout is not only this much,
+    // We also need to understand clearTimeout, clearInterval also and more like this from the docs. 
+
+    // Let's say you asked a work / function to be executed after 5000ms and not you want it to be stopped in between then what 
+
+    // In clearTimeout or clearInterval you have pass the reference of setTimeout or setInterval which you want to stop
+    
+    document.querySelector('#stop').addEventListener('click', (event) => {
+        clearTimeout(shortNameTO);
+        console.log('IIIT Agartala will not be showed !!');
+    })
+
+    const sayDate = function(str){
+        console.log(str, Date.now());
+    }
+    const intervalId = setInterval(sayDate, 1000, "hi")
+    // clearInterval(intervalId);
+
+</script>
+
+</html>
