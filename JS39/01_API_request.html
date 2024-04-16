@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>API Requests</title>
+</head>
+<body class="bg-gray-800 p-12 text-white">
+    <p class="text-center font-bold text-3xl">HELLO</p>
+    <p class="text-center text-xl">All the working code is in console</p>
+</body>
+<script>
+
+    let i=0;
+    const requestURL = 'https://api.github.com/users/arshitcc';
+    const xhr = new XMLHttpRequest();
+    console.log(xhr.readyState, `${i++}`); // UNSENT
+
+    xhr.open('GET',requestURL); // OPENED
+    console.log(xhr.readyState, `${i++}`);
+
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState, `${i++}`);
+        
+        if(xhr.readyState === 4){
+
+            // console.log(responseText);
+            console.log(this.responseText); //  gives the data from the requestURL
+            
+            console.log(typeof this.responseText);
+
+            // const data = this.responseText;
+            // console.log(data.followers);
+            // console.log(typeof data);
+            // The above will not work untill you work on 
+
+            data = JSON.parse(this.responseText);
+            console.log(typeof data);
+            console.log(data.followers);
+
+        }
+    }
+    xhr.send();
+</script>
+</html>

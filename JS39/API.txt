@@ -1,0 +1,28 @@
+
+API => Application Programming Interface, which are used to handle request from frontend-backend, database from one_language-another_language.
+
+mostly API's are nothing but an object which is a data / database , whose structure has to be understood to perform operations on data .
+
+=> We can use randomuser.me to generate API's 
+=> For understanding the structure of API we can use any available JSON Formatter than converts the JSON objects into sa structural manner like TREE.
+
+In this modern time, developers mostly use fetch() but fetch is just new from 6 years what about before that ? NO API's 😂
+
+Earlier developers were sending XML-Http-Request were done with the help of Ajax => A technological approach mixup of Asynchronous Javascript and XML
+
+more can be read on [https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest]
+
+The Requests are used to be handled with help of states, even now also in React they are handeled by states
+
+Value	State	            Description
+    0	UNSENT	            Client has been created. open() not called yet.
+    1	OPENED	            open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	            Downloading; responseText holds partial data.
+    4	DONE	            The operation is complete.
+
+now in React and other frameworks also they now have their specific names for every state so from there they are called. 
+No like before xhr[0],xhr[1], etc
+
+
+
