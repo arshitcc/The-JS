@@ -1,0 +1,58 @@
+                                    The Fetch API is finally stable in Node.js
+
+The above statement has given such a relief on minds and hands of Developers. because it has provided a standardized and modern approach to perform HTTP requests in both the browser and server environments. 
+ 
+One significant advantage Fetch has over XMLHttpRequest is that it leverages promises, allowing for a simpler and cleaner API while avoiding callback hell.
+
+Earlier the management of XML/ XHR was revolving around the callBack hell of 
+
+The global fetch() method starts the process of fetching a resource from the network, returning a promise that is fulfilled once the response is available.
+
+The promise resolves to the Response object representing the response to your request.
+
+A fetch() promise only rejects when the request fails, for example, because of a badly-formed request URL or a network error. A fetch() promise does not reject if the server responds with HTTP status codes that indicate errors (404, 504, etc.). Instead, a then() handler must check the Response.ok and/or Response.status properties.
+
+
+
+Fetch is just not only about extracting the data from the resource but also allows you with the 'options' to operate some conditional operations according to what kind of data you wanted to bring out from it.
+
+fetch(resource);
+fetch(resource, options);
+
+More.. to read : 
+https://developer.mozilla.org/en-US/docs/Web/API/fetch
+
+This is what the browser fetch_reads : 
+
+https://fetch.spec.whatwg.org/#fetch-method
+
+In the place of options you can pass any data  : 
+fetch('https://example.com/', {
+  cache: 'only-if-cached',
+  mode: 'no-cors',
+});
+
+IMPORTANT NOTE : 
+
+When in a program there are various callBacks of setTimeout, setInterval, fetch() and even fetch is defined after setTimeout or setInterval the fetch() will be executed very firstly beacuse unlike in setInterval and setTimeout Task Queues are assigned to it.
+But for fetch() methods a speacial Fetch_Queue /Priority_Task_Queues are assigned and their task has to be executed at utmost priority.
+
+
+when we write 
+
+const response = fetch('resource'); 
+
+A lot of things happens behind the scenes
+
+This fetch() methods performs 2 tasks : 
+
+1. Web_Request from Browser/Node to reach the resource : 
+
+    If netwrok request got failed to reach the request its response directly falls into rejection.
+
+    When the request reaches the resource it basically will sends its response into resolve() even the data you were looking for is not found that also falls into resolve(). Like (File Not Found)/(Error_404) they all lies in resolve();
+
+2. Memory has to be assigned to resolve() and reject() : 
+    They basically are arrays, which  cannot be controlled by you.
+    Whichever array got the response that data is sended as an actual response in the 'const 'response'.
+

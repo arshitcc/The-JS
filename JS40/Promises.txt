@@ -1,0 +1,32 @@
+The Promise object represents the eventual completion / failure of an asynchronous operation and its resulting value.
+
+A Promise is in one of these states:
+
+1. pending: initial state, neither fulfilled nor rejected.
+2. fulfilled: meaning that the operation was completed successfully.
+3. rejected: meaning that the operation failed.
+
+Earlier when promises were not present, all the works were done by asynchronous coding.
+
+When Promises came they were not pre-native / pre-installed in Node.js or Core.Js.
+There they used to have libraries like Q and BlueBird but now 'Promises' comes native into Node.js.
+
+Still there are some utility methods extra in BlueBird but still native promises in Node.js must be the first priority which is even stable and faster.
+
+There are mainly two parts about promises
+1. Create Promises
+2. Consume Promises
+
+1. Create Promises : 
+    They can be created by new Promises(). which accepts a call-back function with two parts 
+    a. resolve
+    b. reject
+
+In promises, do an Async task of like Database calls, Cryptography Threading works, Networking calls
+    
+More.... in 01_Promises.js, 02_Promises.js
+
+====================================================================================================================================
+
+
+
