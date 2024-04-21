@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title> Lexical Scoping | Closure</title>
+</head>
+<body class="bg-gray-700">
+
+    <div class="flex justify-center items-center gap-4">
+        <a id="orange" href="#" class="rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"> Orange</a>
+
+        <a id="yellow" href="#" class="rounded-md bg-yellow-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600">Yellow</a>
+
+    </div>
+
+    
+</body>
+<script>
+
+    /*
+        A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+
+        => Inside inner function there is complete access to the declared methods, variables, properties and variables of outer function 
+
+    */
+
+
+    // function outer(){
+    //     const userName = "Arshit"
+    //     function inner(){
+    //         console.log(`Inside Inner  ${userName}`);
+    //     }
+    //     inner();
+    //     console.log("Inside Outer ", userName);
+    // }
+
+    // outer();
+    // console.log(`Out Of Outer ${userName}`);
+
+    /*
+        Lexical Scope Meaning  =>  
+
+        outer() creates a local variable called userName and a function called inner(). The inner() function is an inner function that is defined inside outer() and is available only within the body of the outer() function. Note that the inner() function has no local variables of its own. However, since inner functions have access to the variables of outer functions, inner() can access the variable name declared in the parent function, outer().
+
+    */
+
+    /*=====================================================================================================================*/
+
+
+    // function handleClick(color){
+    //     document.body.style.backgroundColor = `${color}`;
+    // }
+    // document.querySelector('#orange').addEventListener('click', handleClick('orange'));
+    // document.querySelector('#yellow').addEventListener('click', handleClick('yellow'));
+
+
+    // The problem is we are not passing any reference, we are directly passing function which executes it 
+    //                              OR Say
+    // The problem is that on event-click we provide refernce of function but here we are directly calling the function that directly executes it.
+    // Now Here comes the useCase of closure / Lexical Scoping, not like above 
+
+    function clickHandle(color){
+        return function(){
+            document.body.style.backgroundColor = `${color}`;
+        }
+    }
+
+    document.querySelector('#orange').addEventListener('click',clickHandle('orange'));
+    document.querySelector('#yellow').addEventListener('click',clickHandle('yellow'));
+
+    /* 
+        Now when the function is called it is returning a function, so with the help of Lexical Scoping and closure property we are able to perform the onclick activity otherwise t would have been directly executed.
+    */
+    
+
+</script>
+</html>
