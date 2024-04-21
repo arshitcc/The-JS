@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #000;
+            margin: 10px;
+        }
+
+        button {
+            width: 100px;
+            color: #008;
+            padding: 5px;
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 30px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="time">Time : </p>
+    <button type="submit">Start</button>
+
+    <h2>Click on the buttons</h2>
+    <div>
+        outer div<br />
+        <div>
+            middle div<br />
+            <div>
+                inner div<br />
+                <button>allow propagation</button><br />
+                <button id="stopPropagation">stop propagation</button><br />
+                <button id="stopImmediatePropagation">immediate stop propagation</button>
+            </div>
+        </div>
+    </div>
+    <pre></pre>
+
+    
+</body>
+<script>
+    function getTime(event){
+        console.log(event.timeStamp);
+    }
+    document.body.addEventListener('click', (evt) => {
+        document.addEventListener('keyup',getTime);
+    });
+
+    document.querySelectorAll('div').forEach((elem)=>{
+        elem.addEventListener('click',(evt)=>{
+            console.log(typeof elem.firstChild); //object
+            console.log(typeof elem.firstChild.data); //string
+        })
+    })
+</script>
+</html>
