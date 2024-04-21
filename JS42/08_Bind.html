@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>React App</title>
+</head>                                                                        
+<body>
+    
+    <div class="container mx-auto mt-12 text-center">
+        <button  class="button px-12 py-8 rounded rounded-xl bg-blue-600 text-3xl text-white font-bold">Submit</button>
+    </div>
+</body>
+<script>
+
+    /*  
+        Both bind and call are methods available in JavaScript that are used to manipulate how functions are invoked and what context they have access to.
+
+        The bind() method creates a new function with the same body as the original function but with a fixed context (this value).
+
+        It does not execute the function immediately but rather returns a new function that, when called, will have the specified context (this value).
+
+        It is commonly used to create functions with pre-set arguments or to set the context (this) for a function permanently.
+
+        NOTE : 
+        Think of bind() as a "promise" for a function. It creates a new version of a function where you specify what this should refer to when the function is called later.
+        It's like saying, "Hey function, when you get called later, always consider this to be this specific thing."
+
+
+
+    */
+
+    class React{
+
+        constructor(){
+            this.library = "React";
+            this.server = "https://localhost:3000";
+
+            document
+                .querySelector(".button")
+                .addEventListener('click', this.handleClick.bind(this)); 
+                
+            // dont write () this is a call not a refernce this will immediately call whenever the React object is created, and not wait for eventListen
+
+        }
+
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this); // it has refernce of button but not able to show this.server
+            console.log(this.server);
+        }
+
+    }
+
+    const app =  new React();
+
+</script>
+</html>
