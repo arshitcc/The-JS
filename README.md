@@ -24,7 +24,7 @@ You can also find me on LeetCode as [arshitcc](https://leetcode.com/arshitcc), w
 Here are some resources I find helpful for learning JavaScript:
 
 - [MDN Web Docs for JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- [Chai Aur Code]([https://www.freecodecamp.org/](https://www.youtube.com/watch?v=Hr5iLG7sUa0&list=PLu71SKxNbfoBuX3f4EOACle2y-tRC5Q37)): Offers interactive tutorials on JavaScript
+- [Chai Aur Code](https://www.youtube.com/watch?v=Hr5iLG7sUa0&list=PLu71SKxNbfoBuX3f4EOACle2y-tRC5Q37): Offers interactive tutorials on JavaScript
 - [JavaScript.info](https://javascript.info/): Comprehensive JavaScript tutorials and references
 - [ECMAScript Language](https://262.ecma-international.org/5.1/#sec-10.1): The History JS
 
